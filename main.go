@@ -29,10 +29,10 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-// protoc-gen-go is a plugin for the Google protocol buffer compiler to generate
+// protoc-gen-goweb is a plugin for the Google protocol buffer compiler to generate
 // Go code.  Run it by building this program and putting it in your path with
 // the name
-// 	protoc-gen-go
+// 	protoc-gen-goweb
 // That word 'go' at the end becomes part of the option string set for the
 // protocol compiler, so once the protocol compiler (protoc) is installed
 // you can run
@@ -52,8 +52,8 @@ import (
 	"io/ioutil"
 	"os"
 
+	"github.com/ekle/protoc-gen-goweb/generator"
 	"github.com/golang/protobuf/proto"
-	"github.com/golang/protobuf/protoc-gen-go/generator"
 )
 
 func main() {
