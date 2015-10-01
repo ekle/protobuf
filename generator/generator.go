@@ -1161,7 +1161,7 @@ func (g *Generator) generateImports() {
 	// for handling bit patterns for floating-point numbers.
 	//g.P("import " + g.Pkg["proto"] + " " + strconv.Quote(g.ImportPrefix+"github.com/golang/protobuf/proto"))
 	if !g.file.proto3 {
-		//g.P("import " + g.Pkg["math"] + ` "math"`)
+		g.P("import " + g.Pkg["math"] + ` "math"`)
 	}
 	for i, s := range g.file.Dependency {
 		fd := g.fileByName(s)
@@ -1182,7 +1182,7 @@ func (g *Generator) generateImports() {
 			continue
 		}
 		if _, ok := g.usedPackages[fd.PackageName()]; ok {
-			//g.P("import ", fd.PackageName(), " ", strconv.Quote(importPath))
+			g.P("import ", fd.PackageName(), " ", strconv.Quote(importPath))
 		} else {
 			// TODO: Re-enable this when we are more feature-complete.
 			// For instance, some protos use foreign field extensions, which we don't support.

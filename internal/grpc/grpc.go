@@ -216,6 +216,8 @@ func (g *grpc) generateServerMethod(servName string, method *pb.MethodDescriptor
 	serverType := servName + "Server"
 
 	g.P("// _", serverType, ".", methName, "(", inType, ") ", outType)
+	g.P("var _ = ", inType, "{} // to prevent error, if not directly used")
+	g.P("var _ = ", outType, "{} // to prevent error, if not directly used")
 	g.P("func (impl* _", serverType, " )", methName, "(c web.C, w http.ResponseWriter, r *http.Request) {")
 
 	if method.GetServerStreaming() || method.GetClientStreaming() {
