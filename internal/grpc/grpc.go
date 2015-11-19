@@ -241,7 +241,7 @@ func (g *grpc) generateServerMethod(servName string, method *pb.MethodDescriptor
 		g.P("		log.Println(err.Error())")
 		g.P("		return")
 		g.P("	}")
-		g.P("	res,err := impl.handler.", methName, "(context.TODO(),&in)")
+		g.P("	res,err := impl.handler.", methName, "(context.Background(),&in)")
 		g.P("	if err != nil {")
 		g.P("		w.WriteHeader(500)")
 		g.P("		w.Write([]byte(err.Error()))")
